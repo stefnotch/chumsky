@@ -29,7 +29,7 @@ pub(super) use ops::{Infix, InfixPostfix, InfixPrefix, InfixPrefixPostfix, Pratt
 /// parser `P`, and a function which is used to `build` a value `E`.
 /// The operator's precedence is determined by `strength`. The higher
 /// the value, the higher the precedence.
-pub fn left_infix<P, E, PO>(parser: P, strength: u8, build: InfixBuilder<E>) -> InfixOp<P, E, PO> {
+pub fn left_infix<P, E, PO>(parser: P, strength: u16, build: InfixBuilder<E>) -> InfixOp<P, E, PO> {
     InfixOp::new_left(parser, strength, build)
 }
 
@@ -39,7 +39,7 @@ pub fn left_infix<P, E, PO>(parser: P, strength: u8, build: InfixBuilder<E>) -> 
 /// parser `P`, and a function which is used to `build` a value `E`.
 /// The operator's precedence is determined by `strength`. The higher
 /// the value, the higher the precedence.
-pub fn right_infix<P, E, PO>(parser: P, strength: u8, build: InfixBuilder<E>) -> InfixOp<P, E, PO> {
+pub fn right_infix<P, E, PO>(parser: P, strength: u16, build: InfixBuilder<E>) -> InfixOp<P, E, PO> {
     InfixOp::new_right(parser, strength, build)
 }
 
@@ -49,7 +49,7 @@ pub fn right_infix<P, E, PO>(parser: P, strength: u8, build: InfixBuilder<E>) ->
 /// that is parsed with the parser `P`, and a function which is used
 /// to `build` a value `E`. The operator's precedence is determined
 /// by `strength`. The higher the value, the higher the precedence.
-pub fn prefix<P, E, PO>(parser: P, strength: u8, build: PrefixBuilder<E>) -> PrefixOp<P, E, PO> {
+pub fn prefix<P, E, PO>(parser: P, strength: u16, build: PrefixBuilder<E>) -> PrefixOp<P, E, PO> {
     PrefixOp::new(parser, strength, build)
 }
 
@@ -59,7 +59,7 @@ pub fn prefix<P, E, PO>(parser: P, strength: u8, build: PrefixBuilder<E>) -> Pre
 /// that is parsed with the parser `P`, and a function which is used
 /// to `build` a value `E`. The operator's precedence is determined
 /// by `strength`. The higher the value, the higher the precedence.
-pub fn postfix<P, E, PO>(parser: P, strength: u8, build: PostfixBuilder<E>) -> PostfixOp<P, E, PO> {
+pub fn postfix<P, E, PO>(parser: P, strength: u16, build: PostfixBuilder<E>) -> PostfixOp<P, E, PO> {
     PostfixOp::new(parser, strength, build)
 }
 
